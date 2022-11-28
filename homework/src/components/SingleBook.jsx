@@ -2,6 +2,9 @@ import { Component } from "react";
 import { Card } from "react-bootstrap";
 
 class SingleBook extends Component {
+  state = {
+    selected: false,
+  };
   render() {
     return (
       <Card
