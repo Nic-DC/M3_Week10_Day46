@@ -32,22 +32,21 @@ class App extends Component {
         </Container>
         <Container className="container-fluid">
           <Row>
-            <Col xs={6} md={9}>
-              <Row>
-                <Col xs={12} md={6} lg={4}>
-                  <SingleBook
-                    // selectedBook={this.state.selectedBook}
-                    changeSelectedBook={this.changeSelectedBook}
-                    fantasyBook={fantasyBooks[3]}
-                  />
-                </Col>
-              </Row>
+            <Col xs={this.state.selectedBook ? 8 : 12}>
+              {/* <SingleBook
+                // selectedBook={this.state.selectedBook}
+                changeSelectedBook={this.changeSelectedBook}
+                fantasyBook={fantasyBooks[3]}
+              /> */}
+
               <BooksList fantasyBooks={fantasyBooks} changeSelectedBook={this.changeSelectedBook} />
             </Col>
-            <Col xs={6} md={3}>
-              <h2>Comment Area</h2>
-              <CommentArea id={this.state.id} />
-            </Col>
+            {this.state.selectedBook && (
+              <Col xs={4}>
+                <h2>Comment Area</h2>
+                <CommentArea id={this.state.id} />
+              </Col>
+            )}
           </Row>
         </Container>
       </div>

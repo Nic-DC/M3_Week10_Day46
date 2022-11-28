@@ -1,10 +1,15 @@
 import { Component } from "react";
 
-import { ListGroup, Alert } from "react-bootstrap";
+// import { Alert } from "react-bootstrap";
+
+import CommentItem from "./CommentItem";
+import CrUDactions from "./CrUDactions";
+// import AlertComment from "./AlertComment";
 
 class CommentArea extends Component {
   state = {
     comments: [],
+    selectedId: undefined,
   };
 
   options = {
@@ -21,7 +26,7 @@ class CommentArea extends Component {
       if (response.ok) {
         let allComments = await response.json();
         console.log(allComments);
-        this.setState({ comments: allComments });
+        this.setState({ comments: allComments.slice(0, 3), selectedId: this.props.id });
       } else {
         console.log(this.props.id);
         console.log("something's not working");
@@ -44,12 +49,10 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
-        <Alert variant="warning">{this.props.id || "Click a book"}</Alert>
-        <ListGroup>
-          {this.state.comments.map((comm) => (
-            <ListGroup.Item>{comm.comment}</ListGroup.Item>
-          ))}
-        </ListGroup>
+        {/* <AlertComment selectedId={this.state.id} /> */}
+
+        <CommentItem comments={this.state.comments} selectedId={this.state.id} />
+        <CrUDactions />
       </div>
     );
   }
