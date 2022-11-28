@@ -4,9 +4,15 @@ class CrUDactions extends Component {
   render() {
     return (
       <div>
-        <Button variant="danger">Danger</Button>
-        <Button variant="light">Light</Button>
-        <Button variant="dark">Dark</Button>{" "}
+        <Button variant="light" className="mr-4">
+          Post
+        </Button>
+        <Button variant="dark" className="">
+          Update
+        </Button>{" "}
+        <Button variant="danger" className="mr-4">
+          Delete
+        </Button>
       </div>
     );
   }
