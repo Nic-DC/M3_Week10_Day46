@@ -38,7 +38,7 @@ class App extends Component {
                   <SingleBook
                     // selectedBook={this.state.selectedBook}
                     changeSelectedBook={this.changeSelectedBook}
-                    fantasyBook={fantasyBooks[0]}
+                    fantasyBook={fantasyBooks[3]}
                   />
                 </Col>
               </Row>

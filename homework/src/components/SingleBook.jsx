@@ -15,6 +15,7 @@ class SingleBook extends Component {
         // style={{
         //   border: this.state.selected ? "5px solid black" : "none",
         // }}
+
         onClick={() => this.props.changeSelectedBook(this.props.fantasyBook)}
         className="mb-4"
       >
