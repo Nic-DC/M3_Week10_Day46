@@ -13,10 +13,11 @@ import fantasyBooks from "./books/fantasy.json";
 class App extends Component {
   state = {
     selectedBook: null,
+    id: undefined,
   };
 
-  changeSelected = (book) => {
-    this.setState({ selectedBook: book });
+  changeSelectedBook = (book) => {
+    this.setState({ selectedBook: book, id: book.asin });
   };
 
   render() {
@@ -36,16 +37,16 @@ class App extends Component {
                 <Col xs={12} md={6} lg={4}>
                   <SingleBook
                     // selectedBook={this.state.selectedBook}
-                    // changeSelectedBook={this.changeSelected}
+                    changeSelectedBook={this.changeSelectedBook}
                     fantasyBook={fantasyBooks[0]}
                   />
                 </Col>
               </Row>
-              <BooksList fantasyBooks={fantasyBooks} />
+              <BooksList fantasyBooks={fantasyBooks} changeSelectedBook={this.changeSelectedBook} />
             </Col>
             <Col xs={6} md={3}>
               <h2>Comment Area</h2>
-              <CommentArea />
+              <CommentArea id={this.state.id} />
             </Col>
           </Row>
         </Container>

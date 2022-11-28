@@ -12,6 +12,7 @@ class SingleBook extends Component {
         // style={{
         //   border: this.state.selected ? "5px solid black" : "none",
         // }}
+        onClick={() => this.props.changeSelectedBook(this.props.fantasyBook)}
         className="mb-4"
       >
         <Card.Img
@@ -28,6 +29,9 @@ class SingleBook extends Component {
           }}
         >
           <Card.Title className="line-clamp">{this.props.fantasyBook.title}</Card.Title>
+          <Card.Text className="line-clamp">
+            {this.props.fantasyBook.category} | {this.props.fantasyBook.asin}
+          </Card.Text>
         </Card.Body>
       </Card>
     );

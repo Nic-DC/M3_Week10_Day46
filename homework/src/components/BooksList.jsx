@@ -8,7 +8,7 @@ class BooksList extends Component {
       <Row>
         {this.props.fantasyBooks.map((book) => (
           <Col xs={6} md={4}>
-            <SingleBook fantasyBook={book} />
+            <SingleBook fantasyBook={book} changeSelectedBook={this.props.changeSelectedBook} />
           </Col>
         ))}
       </Row>
